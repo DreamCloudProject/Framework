@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'war' 
+apply plugin: 'eclipse-wtp' 
+
+repositories {
+  mavenCentral()
+}
+
+task deploy(dependsOn: build) << {
+    println "Copy from ${libsDir.getPath()} into ${tomcatHome}/webapps"
+    copy{
+      from libsDir
+      into "${tomcatHome}/webapps"
+      include '*.war'
+    }
+  }
+
+dependencies {
+  compile project(':HtmlBuilder')
+}  
