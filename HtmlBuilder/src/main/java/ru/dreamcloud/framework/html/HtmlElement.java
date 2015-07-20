@@ -1,4 +1,4 @@
-package ru.dreamcloud.html;
+package ru.dreamcloud.framework.html;
 
 public class HtmlElement {
 	public HtmlTag startTag = null;

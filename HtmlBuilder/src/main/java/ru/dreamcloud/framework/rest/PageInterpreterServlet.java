@@ -1,4 +1,4 @@
-package ru.dreamcloud.rest;
+package ru.dreamcloud.framework.rest;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ru.dreamcloud.html.PageBuilder;
+import ru.dreamcloud.framework.html.PageBuilder;
 
 /**
  * Servlet implementation class PageInterpreterServlet

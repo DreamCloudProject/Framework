@@ -1,4 +1,4 @@
-package ru.dreamcloud.html;
+package ru.dreamcloud.framework.html;
 
 import java.io.File;
 import java.io.IOException;

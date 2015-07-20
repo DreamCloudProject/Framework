@@ -1,4 +1,4 @@
-package ru.dreamcloud.html;
+package ru.dreamcloud.framework.html;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
