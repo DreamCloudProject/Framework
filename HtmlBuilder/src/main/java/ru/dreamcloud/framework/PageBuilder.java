@@ -1,4 +1,4 @@
-package ru.dreamcloud.framework.html;
+package ru.dreamcloud.framework;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +17,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import ru.dreamcloud.framework.html.HtmlHandler;
 
 public class PageBuilder {
 	

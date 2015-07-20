@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ru.dreamcloud.framework.html.PageBuilder;
+import ru.dreamcloud.framework.PageBuilder;
 
 /**
  * Servlet implementation class PageInterpreterServlet
