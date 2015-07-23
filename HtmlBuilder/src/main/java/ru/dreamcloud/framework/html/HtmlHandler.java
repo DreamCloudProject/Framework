@@ -14,12 +14,10 @@ public class HtmlHandler extends DefaultHandler {
 		currentQName = qName;
 		HtmlTag tag = new HtmlTag("div",false);
 		//System.out.println(tabs + "Start Element :" + qName);		
-		HtmlAttribute cssClassAttr = new HtmlAttribute("class", qName);
-		tag.attributes.add(cssClassAttr);
 		for (int a = 0; a < attributes.getLength(); a++) {
 			String attributeName = attributes.getLocalName(a);
-			String attributeValue = attributes.getValue(a);
-			HtmlAttribute htmlAttr = new HtmlAttribute(attributeName, attributeValue);
+			String attributeValue = attributeName.equalsIgnoreCase("class") ? attributes.getValue(a) + " " + qName : attributes.getValue(a);
+			HtmlAttribute htmlAttr = new HtmlAttribute(attributeName, attributeValue);		
 			tag.attributes.add(htmlAttr);
 			//System.out.println(tabs + attributeName + "=" + attributeValue);
 		}

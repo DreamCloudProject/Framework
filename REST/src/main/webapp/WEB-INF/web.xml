@@ -6,7 +6,7 @@
 	<display-name>REST</display-name>
 	<servlet>
 		<servlet-name>PageInterpreterServlet</servlet-name>
-		<servlet-class>ru.dreamcloud.rest.PageInterpreterServlet</servlet-class>
+		<servlet-class>ru.dreamcloud.framework.rest.PageInterpreterServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
