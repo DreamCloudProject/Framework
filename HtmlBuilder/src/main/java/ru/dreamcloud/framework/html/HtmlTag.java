@@ -4,7 +4,7 @@ import java.util.List;
 
 public class HtmlTag {
 	private String tagHtmlStr = null;
-	public List<HtmlAttribute> attributes = new HtmlElementsList<HtmlAttribute>();
+	public List<HtmlAttribute> attributes = new HtmlAttributesList<HtmlAttribute>();
 
 	public HtmlTag(String tagName,boolean closeTag){		
 		if(!closeTag){

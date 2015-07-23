@@ -3,7 +3,7 @@ package ru.dreamcloud.framework.html;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class HtmlElementsList<E> extends ArrayList<E>{
+public class HtmlAttributesList<E> extends ArrayList<E>{
 
 	private static final long serialVersionUID = 1L;
 
