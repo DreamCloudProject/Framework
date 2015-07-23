@@ -10,6 +10,7 @@ import ru.dreamcloud.framework.widgets.WidgetValidator;
 public class HtmlHandler extends DefaultHandler {
 	private String currentQName;
 	private String resultHtml = new String();
+	private HtmlPage htmlPage = new HtmlPage();
 	private String tabs = new String();
 	private WidgetConstructor constructor = new WidgetConstructor();
 	

@@ -1,9 +1,9 @@
-package ru.dreamcloud.framework.html;
+package ru.dreamcloud.framework.utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class HtmlAttributesList<E> extends ArrayList<E>{
+public class StringBracketsFreeList<E> extends ArrayList<E>{
 
 	private static final long serialVersionUID = 1L;
 
