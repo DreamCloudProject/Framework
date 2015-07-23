@@ -12,7 +12,7 @@ task deploy(dependsOn: build) << {
       into "${tomcatHome}/webapps"
       include '*.war'
     }
-  }
+}
 
 dependencies {
   compile project(':HtmlBuilder')

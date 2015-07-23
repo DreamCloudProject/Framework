@@ -14,6 +14,11 @@ repositories {
     mavenCentral()
 }
 
+task copyRuntimeLibs(type: Copy) {
+	into "../libs"
+	from configurations.testRuntime
+}
+
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'    
     compile 'javax.servlet:servlet-api:2.5'
