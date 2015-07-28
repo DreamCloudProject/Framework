@@ -24,7 +24,7 @@ public class PageInterpreterServlet extends HttpServlet {
 		ServletContext servletContext = getServletContext();
 		String contextPath = servletContext.getRealPath(File.separator);
 		
-		File xmlFile = new File(contextPath + "WEB-INF/template/index.html");
+		File htmlFile = new File(contextPath + "WEB-INF/template/index.html");
 		try {
 			response.setContentType("text/html");
 			response.setCharacterEncoding("UTF-8");
@@ -33,9 +33,7 @@ public class PageInterpreterServlet extends HttpServlet {
 
 			// Actual logic goes here.
 			PrintWriter out = response.getWriter();
-			out.println("<body>");			
-			out.println(pageHtml.getHtmlResult(xmlFile));
-			out.println("</body>");
+			out.println(pageHtml.getParsedHtml(htmlFile));
 			out.close();	
 		} catch (Exception e) {
 			// TODO: handle exception

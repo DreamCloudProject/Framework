@@ -11,6 +11,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.ccil.cowan.tagsoup.jaxp.SAXParserImpl;
+import org.jsoup.Jsoup;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -26,18 +27,30 @@ public class PageBuilder {
 	
 	/*public static void main(String[] args) {
 		File xmlFile = new File("../REST/src/main/webapp/WEB-INF/template/index.html");
-		System.out.println(getHtmlResult(xmlFile));
+		System.out.println(getParsedHtml(xmlFile));
 	}*/
-
+	
 	public String getHtmlResult(File xmlFile) {		
 		try {
 			//parseSAX(xmlFile);
-			parseSAXHtml(xmlFile);
+			parseSAXHtml(xmlFile);			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return handler.getResultHtml();
+	}
+	
+	public String getParsedHtml(File htmlFile){
+		String html = new String();
+		try {
+			org.jsoup.nodes.Document doc = Jsoup.parse(htmlFile, "UTF-8");
+			html = doc.html();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return html;
 	}
 	
 	private void parseSAXHtml(File xmlFile) {
@@ -60,7 +73,7 @@ public class PageBuilder {
 			e.printStackTrace();
 		}
 	}
-
+	
 	private void parseDOM(InputStream xmlFile) {
 		try {
 			DocumentBuilderFactory xmlFact = DocumentBuilderFactory.newInstance();
