@@ -1,5 +1,5 @@
 #org.springsource.ide.eclipse.gradle.core.preferences.GradleProjectPreferences
 #Tue Jul 28 11:51:51 EEST 2015
-build.family.org.gradle.tooling.model.eclipse.HierarchicalEclipseProject=;CMS-UI;HtmlBuilder;TestTemplate;
+build.family.org.gradle.tooling.model.eclipse.HierarchicalEclipseProject=;
 org.springsource.ide.eclipse.gradle.linkedresources=
-org.springsource.ide.eclipse.gradle.rootprojectloc=
+org.springsource.ide.eclipse.gradle.rootprojectloc=..

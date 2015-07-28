@@ -45,6 +45,7 @@ public class PageBuilder {
 		String html = new String();
 		try {
 			org.jsoup.nodes.Document doc = Jsoup.parse(htmlFile, "UTF-8");
+			doc.title("DreamCloud Framework Page");
 			html = doc.html();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

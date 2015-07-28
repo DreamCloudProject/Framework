@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+  mavenCentral()
+}
+
+task deploy(dependsOn: build) << {
+    println "Copy from ${libsDir.getPath()} into ${tomcatHome}/webapps"
+    copy{
+      from libsDir
+      into "${tomcatHome}/webapps"
+      include '*.war'
+    }
+}
+
+
+war.dependsOn(':CMS-UI:war')
+
+war << {
+    ant.zip(destfile: war.archivePath, duplicate: 'preserve', keepcompression: true, update: true) {
+        zipfileset (src: project(':CMS-UI').war.archivePath)
+    }
+}
+
+dependencies {
+  compile project(':HtmlBuilder')
+}  

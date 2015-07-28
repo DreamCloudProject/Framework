@@ -1,1 +1,1 @@
-include ":HtmlBuilder", ":REST"
+include ":HtmlBuilder", ":Template", ":CMS-UI"
