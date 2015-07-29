@@ -12,6 +12,8 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.ccil.cowan.tagsoup.jaxp.SAXParserImpl;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Attributes;
+import org.jsoup.select.Elements;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -26,7 +28,7 @@ public class PageBuilder {
 	private HtmlHandler handler = new HtmlHandler();
 	
 	/*public static void main(String[] args) {
-		File xmlFile = new File("../REST/src/main/webapp/WEB-INF/template/index.html");
+		File xmlFile = new File("../Template/src/main/webapp/WEB-INF/template/index.html");
 		System.out.println(getParsedHtml(xmlFile));
 	}*/
 	
@@ -44,10 +46,22 @@ public class PageBuilder {
 	public String getParsedHtml(File htmlFile){
 		String html = new String();
 		try {
+			//id="article1" contenteditable="true"
 			org.jsoup.nodes.Document doc = Jsoup.parse(htmlFile, "UTF-8");
+			String initJs = "CKEDITOR.disableAutoInline=true;";
 			doc.title("DreamCloud Framework Page");
 			doc.head().appendElement("script").attr("src", "js/ckeditor/ckeditor.js");
-			doc.body().appendElement("script").appendText("CKEDITOR.disableAutoInline=true;CKEDITOR.inline('article1')");
+			Elements widgets = doc.getElementsByTag("widget-text");
+			for (org.jsoup.nodes.Element element : widgets) {				
+				Attributes attrs = element.attributes();
+				org.jsoup.nodes.Element div = new org.jsoup.nodes.Element(org.jsoup.parser.Tag.valueOf("div"),"",attrs);
+				div.addClass(element.tagName());				
+				div.attr("contenteditable", "true");
+				div.append(element.html());				
+				initJs += "CKEDITOR.inline('"+div.attributes().get("id")+"');"; 
+				element.replaceWith(div);				
+			}			
+			doc.body().appendElement("script").appendText(initJs);
 			html = doc.html();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
