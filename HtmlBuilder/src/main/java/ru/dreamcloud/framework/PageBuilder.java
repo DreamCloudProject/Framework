@@ -46,9 +46,8 @@ public class PageBuilder {
 		try {
 			org.jsoup.nodes.Document doc = Jsoup.parse(htmlFile, "UTF-8");
 			doc.title("DreamCloud Framework Page");
-			doc.head().appendElement("link").attr("href", "js/bootstrap-editable/css/bootstrap-editable.css").attr("rel", "stylesheet");
-			doc.body().appendElement("script").attr("src", "js/bootstrap-editable/js/bootstrap-editable.js");
-			//doc.head().appendElement("script").appendText("$.fn.editable.defaults.mode = 'inline';");
+			doc.head().appendElement("script").attr("src", "js/ckeditor/ckeditor.js");
+			doc.body().appendElement("script").appendText("CKEDITOR.disableAutoInline=true;CKEDITOR.inline('article1')");
 			html = doc.html();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
